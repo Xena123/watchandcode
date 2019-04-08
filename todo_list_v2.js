@@ -1,5 +1,6 @@
 let todos = ['item 1', 'item 2', 'item 3'];
 
+// Version 2
 // Display list items
 
 function displayTodos() {
