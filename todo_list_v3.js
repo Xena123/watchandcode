@@ -1,7 +1,6 @@
 // Version 3
 
 // it should store the todos array on an object
-
 todoList = {
   todos: ['item 1', 'item 2', 'item 3'],
   // it should have a displayTodos method
