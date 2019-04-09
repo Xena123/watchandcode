@@ -56,3 +56,15 @@ todoList = {
   }
 };
 
+// Clicking "Display todos" should run todoList.displayTodos
+var displayTodosButton = document.getElementById("btn--display");
+var toggleAllButton = document.getElementById("btn--toggle");
+
+displayTodosButton.addEventListener('click', function() {
+  todoList.displayTodos();
+});
+
+// Clicking "Toggle all" should run todoList.toggleAll
+toggleAllButton.addEventListener('click', function() {
+  todoList.toggleAll();
+});
