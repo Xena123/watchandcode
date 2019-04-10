@@ -7,9 +7,27 @@
   <body>
     <h1>Todo List</h1>
     <!-- Version 7: There should be a "Display todos" button and a "Toggle all" button in the app -->
-    <button id="btn--display">Display Todos</button>
-    <button id="btn--toggle">Toggle All</button>
-
+    <div>
+      <button onclick="handlers.displayTodos()">Display Todos</button>
+      <button onclick="handlers.toggleAll()">Toggle All</button>
+    </div>
+    <div>
+      <button onclick="handlers.addTodos()">Add</button>
+      <input id="input--add" type="text">
+    </div>
+    <div>
+      <button onclick="handlers.changeTodo()">Change Todo</button>
+      <input id="input--position" type="number">
+      <input id="input--text" type="text">
+    </div>
+    <div>
+      <button onclick="handlers.deleteTodo()">Delete</button>
+      <input id="input--delete" type="number">
+    </div>
+    <div>
+      <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+      <input id="input--toggle" type="number">
+    </div>
   </body>
-  <script src="todo_list_v7.js"></script>
+  <script src="todo_list_v9.js"></script>
 </html>

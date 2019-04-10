@@ -64,18 +64,16 @@ todoList = {
   }
 };
 
-// Version 8 
+ 
 var handlers = {
   displayTodos: function() {
     todoList.displayTodos();
   },
-  // It should have working controls for .addTodo
   addTodos: function() {
     var addTodoInput = document.getElementById("input--add");
     todoList.addTodos(addTodoInput.value);
     addTodoInput.value = '';
   },
-  // It should have working controls for .changeTodo
   changeTodo: function() {
     var changeTodoPosition = document.getElementById("input--position");
     var changeTodoText = document.getElementById("input--text");
@@ -84,13 +82,11 @@ var handlers = {
     changeTodoPosition.value = '';
     changeTodoText.value = '';
   },
-  // It should have working controls for .deleteTodo
   deleteTodo: function() {
     var deleteTodo = document.getElementById("input--delete");
     todoList.deleteTodo(deleteTodo.valueAsNumber);
     deleteTodo.value = '';
   },
-  // It should have working controls for .toggleCompleted
   toggleCompleted: function() {
     var toggleCompleted = document.getElementById("input--toggle");
     todoList.toggleCompleted(toggleCompleted.valueAsNumber);
@@ -100,9 +96,6 @@ var handlers = {
     todoList.toggleAll();
   }
 };
-
-
-
 
 
 
