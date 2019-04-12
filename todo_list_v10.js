@@ -58,10 +58,8 @@ var handlers = {
     changeTodoText.value = '';
     view.displayTodos();
   },
-  deleteTodo: function() {
-    var deleteTodo = document.getElementById("input--delete");
-    todoList.deleteTodo(deleteTodo.valueAsNumber);
-    deleteTodo.value = '';
+  deleteTodo: function(index) {
+    todoList.deleteTodo(index);
     view.displayTodos();
   },
   toggleCompleted: function() {
@@ -78,23 +76,50 @@ var handlers = {
 
 var view = {
   displayTodos: function() {
-    // There should a li element for every todo
     var list = document.querySelector("ul");
     list.innerHTML = '';
     for (var i = 0; i < todoList.todos.length; i++) {
       var listItem = document.createElement("li");
       var currentTodo = todoList.todos[i];
       var textWithCompletion = '';
-      // Each li element should show .completed
       if (currentTodo.completed == true) {
         textWithCompletion = '(x) ' + currentTodo.todoText;
       } else {
         textWithCompletion = '( ) ' + currentTodo.todoText;
       }
-      // Each li element should contain .todoText
+      // Each li should have an id that has the todo position
+      listItem.setAttribute('data', i);
       listItem.textContent = textWithCompletion;
       list.appendChild(listItem);
+      // There should be a delete button for each todo
+      listItem.appendChild(this.createDeleteButton());
     };
+  },
+  // There should be a way to create delete buttons
+  createDeleteButton: function() {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'btn--delete';
+    return deleteButton;
+  },
+  setupEventListeners: function() {
+    var list = document.querySelector('ul');
+    // Delete buttons should have access to the todo id
+    list.addEventListener('click', function(e) {
+     var buttonIndex = e.target.parentNode.attributes.data.nodeValue;
+      // Get the element that was clicked on
+      var elementClicked = e.target;
+      // Check if the element clicked on is a delete button
+      if (elementClicked.className == 'btn--delete') {
+        // Click delete should update todoList.todos and the DOM
+        handlers.deleteTodo(buttonIndex);
+      }
+    });
   }
 }
+
+
+view.setupEventListeners();
+
+
 

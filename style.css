@@ -1,0 +1,11 @@
+body, button, input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
